@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import { Grid, Divider } from 'semantic-ui-react';
 import './App.css';
+import TaskList from './pages/TaskList.js';
+import Plan from './pages/Plan';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
+
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/plan">
+            <Plan tasks={tasks} />
+          </Route>
+          <Route path="/">
+            <TaskList tasks={tasks} setTasks={setTasks}/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
