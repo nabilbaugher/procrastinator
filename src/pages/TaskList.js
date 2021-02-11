@@ -40,7 +40,11 @@ const TaskList = ({ tasks, setTasks }) => {
       return;
     }
     setTasks(prevtasks => {
-      return [...prevtasks, { id: uuidv4(), name: taskName, dueDate: selectedDate ? selectedDate.month + '/' + selectedDate.day : null }]
+      let date = null;
+      if (selectedDate) {
+        date = new Date(selectedDate.year, selectedDate.month - 1, selectedDate.day, 0, 0, 0, 0);
+      }
+      return [...prevtasks, { id: uuidv4(), name: taskName, dueDate: date }]
     });
     setTaskName('');
     setSelectedDate(null);

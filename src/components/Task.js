@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Header } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import { VscClose } from 'react-icons/vsc';
 
 const Task = ({ id, name, dueDate, setTasks }) => {
@@ -20,7 +20,7 @@ const Task = ({ id, name, dueDate, setTasks }) => {
         <Card.Header>{name}</Card.Header>
         <Card.Description>
           {dueDate ? 
-            <div>Due date: {dueDate}</div> :
+            <div>Due date: {dueDate.getMonth()}/{dueDate.getDay()}</div> :
             <span>No due date</span>
           }
         </Card.Description>
