@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Header, Input, Button, Container } from 'semantic-ui-react';
+import { Card, Header, Input, Button } from 'semantic-ui-react';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import DatePicker, { utils } from 'react-modern-calendar-datepicker';
 import Task from '../components/Task';
@@ -16,7 +16,7 @@ const TaskList = ({ tasks, setTasks }) => {
   const [daysToComplete, setDaysToComplete] = useState(3);
 
   const tasksList = tasks.map(task => {
-    return <Task key={task.id} name={task.name} dueDate={task.dueDate} />
+    return <Task key={task.id} id={task.id} name={task.name} dueDate={task.dueDate} setTasks={setTasks} />
   });
 
   const renderCustomInput = ({ ref }) => (
@@ -29,11 +29,11 @@ const TaskList = ({ tasks, setTasks }) => {
     if (e.key === 'Enter') {
       handleAddTask();
     }
-  }
+  };
 
   const handleAddName = (e, data) => {
     setTaskName(data.value);
-  }
+  };
   
   const handleAddTask = (e) => {
     if (taskName === '') {
@@ -44,11 +44,11 @@ const TaskList = ({ tasks, setTasks }) => {
     });
     setTaskName('');
     setSelectedDate(null);
-  }
+  };
 
   const handleChangeDays = (e, data) => {
     setDaysToComplete(data.value);
-  }
+  };
 
   return (
     <>
