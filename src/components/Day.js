@@ -14,10 +14,10 @@ const Day = ({ dayNumber, dayTasks }) => {
 
   return (
     <Segment>
-      <Header className='center'>Day {dayNumber}</Header>
+      <Header as='h2' className='center'>Day {dayNumber}</Header>
       <Divider />
       <ul>
-        {listOfTasks}
+        { dayTasks.length === 0 ? <li key={uuidv4()} className='day task'>WooHoo! Nothing to do today!</li>: listOfTasks }
       </ul>
     </Segment>
   )

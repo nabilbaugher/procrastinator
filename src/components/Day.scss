@@ -1,6 +1,9 @@
 .day {
   &.first-task {
-    font-weight: bold;
+    font-size: 1.2em;
+  }
+  &.task {
+    font-size: 1.2em;
   }
 
   &.due-date {
