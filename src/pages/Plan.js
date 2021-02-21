@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Button } from 'semantic-ui-react';
 import './Plan.scss';
 import Day from '../components/Day';
 import { v4 as uuidv4 } from 'uuid';
+import { Link, Redirect } from 'react-router-dom';
+import Watermark from '../components/Watermark';
 
 const Plan = ({ tasks, daysToComplete }) => {
+  useEffect(() => {
+    if (tasks.length === 0) {
+      window.alert('Add tasks before generating a plan.');
+    }
+  }, []);
+
   const [sortedTasks, setSortedTasks] = useState([]);
   const [dividedTasks, setDividedTasks] = useState([]);
   const [width, setWidth] = useState(4);
@@ -63,6 +71,10 @@ const Plan = ({ tasks, daysToComplete }) => {
       <Grid className='centered'>
         {daysList}
       </Grid>
+      <Link to='/#'>
+        <Button className='btn' floated='right'>Back to Tasks</Button>
+      </Link>
+      <Watermark content='inator.' size={60} />
     </div>
   )
 }

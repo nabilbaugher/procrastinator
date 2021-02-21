@@ -4,14 +4,7 @@ import { VscClose } from 'react-icons/vsc';
 
 const Task = ({ id, name, dueDate, setTasks }) => {
   const deleteTask = () => {
-    setTasks(prevtasks => {
-      for (let i = 0; i < prevtasks.length; i++) {
-        if (prevtasks[i].id === id) {
-          return prevtasks.splice(i, 1);
-        } 
-      }
-      return prevtasks;
-    });
+    setTasks(prevtasks => prevtasks.filter(task => task.id != id));
   };
 
   return (
@@ -28,7 +21,6 @@ const Task = ({ id, name, dueDate, setTasks }) => {
           <VscClose style={{ transform: 'scale(1.2)' }}/>
         </div>
       </Card.Content>
-      
     </Card>
   )
 };

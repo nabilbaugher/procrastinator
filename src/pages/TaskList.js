@@ -4,13 +4,13 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import DatePicker, { utils } from 'react-modern-calendar-datepicker';
 import Task from '../components/Task';
 import { v4 as uuidv4 } from 'uuid';
-import { BsPlus } from 'react-icons/bs';
+import { BsChevronCompactLeft, BsPlus } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import Watermark from '../components/Watermark';
 
 //TODO: add delete button for each task
 
 const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
-  const [addMode, setAddMode] = useState(false);
   const [taskName, setTaskName] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -52,36 +52,29 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const tasksList = tasks.map(task => {
     return <Task key={task.id} id={task.id} name={task.name} dueDate={task.dueDate} setTasks={setTasks} />
   });
-
+  
   return (
     <>
       <Header style={{ fontSize: '2em' }} textAlign='center'>Tasks</Header>
       <Card.Group centered style={{ margin: '2em' }}>
         {tasksList}
-        {addMode ?
-          <Card>
-            <Card.Content style={{ textAlign: 'center' }}>
-              <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} style={{ marginBottom: '.5em' }}></Input>
-              {selectedDate && 
-                <div style={{ marginBottom: '.5em' }}>Due Date: {selectedDate.month}/{selectedDate.day}</div>
-              }
-              <DatePicker
-                value={selectedDate}
-                onChange={setSelectedDate}
-                renderInput={renderCustomInput}
-                inputPlaceholder='Select due date'
-                minimumDate={utils().getToday()}
-                colorPrimary="#f589a2"
-              />
-              <Button onClick={handleAddTask}>Add Task</Button>
-            </Card.Content>
-          </Card> :
-          <Card onClick={setAddMode(true)}>
-            <Card.Content style={{ justifyContent: 'center', textAlign: 'center' }}>
-              <BsPlus style={{ width: '3em', height: 'auto', margin: '3em' }} />
-            </Card.Content>
-          </Card>
-        }
+        <Card>
+          <Card.Content style={{ textAlign: 'center' }}>
+            <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} style={{ marginBottom: '.5em' }}></Input>
+            {selectedDate && 
+              <div style={{ marginBottom: '.5em' }}>Due Date: {selectedDate.month}/{selectedDate.day}</div>
+            }
+            <DatePicker
+              value={selectedDate}
+              onChange={setSelectedDate}
+              renderInput={renderCustomInput}
+              inputPlaceholder='Select due date'
+              minimumDate={utils().getToday()}
+              colorPrimary="#f589a2"
+            />
+            <Button onClick={handleAddTask}>Add Task</Button>
+          </Card.Content>
+        </Card>
       </Card.Group>
       <div style={{ float: 'right' }}>
         <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span>
@@ -91,6 +84,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
           </Button>
         </Link>
       </div>
+      <Watermark content='Procrast' size={45}/>
     </>
   )
 };

@@ -1,8 +1,10 @@
-.first-task {
-  font-weight: bold;
-}
+.day {
+  &.first-task {
+    font-weight: bold;
+  }
 
-.due-date {
-  float: right;
-  color: gray;
+  &.due-date {
+    float: right;
+    color: rgb(90, 90, 90);
+  }
 }
