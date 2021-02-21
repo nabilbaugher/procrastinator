@@ -21,7 +21,7 @@ const Task = ({ id, name, dueDate, setTasks }) => {
         <Card.Description>
           {dueDate ? 
             <div>Due date: {dueDate.getMonth()}/{dueDate.getDay()}</div> :
-            <span>No due date</span>
+            <div>No due date</div>
           }
         </Card.Description>
         <div onClick={deleteTask} style={{ padding: '2px', margin: '3px', position: 'absolute', top: '0', right: '0' }}>

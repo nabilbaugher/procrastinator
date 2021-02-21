@@ -9,11 +9,10 @@ import { Link } from 'react-router-dom';
 
 //TODO: add delete button for each task
 
-const TaskList = ({ tasks, setTasks }) => {
+const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const [addMode, setAddMode] = useState(false);
   const [taskName, setTaskName] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
-  const [daysToComplete, setDaysToComplete] = useState(3);
 
   const tasksList = tasks.map(task => {
     return <Task key={task.id} id={task.id} name={task.name} dueDate={task.dueDate} setTasks={setTasks} />
@@ -57,7 +56,7 @@ const TaskList = ({ tasks, setTasks }) => {
   return (
     <>
       <Header style={{ fontSize: '2em' }} textAlign='center'>Tasks</Header>
-      <Card.Group style={{ margin: '2em' }}>
+      <Card.Group centered style={{ margin: '2em' }}>
         {tasksList}
         {addMode ?
           <Card>

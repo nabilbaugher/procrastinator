@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import './App.css';
+import './App.scss';
 import TaskList from './pages/TaskList.js';
 import Plan from './pages/Plan';
 import {
@@ -12,6 +12,7 @@ import {
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [daysToComplete, setDaysToComplete] = useState(3);
 
   return (
     <div className="App">
@@ -20,10 +21,10 @@ const App = () => {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/plan">
-            <Plan tasks={tasks} />
+            <Plan tasks={tasks} daysToComplete={daysToComplete} />
           </Route>
           <Route path="/">
-            <TaskList tasks={tasks} setTasks={setTasks}/>
+            <TaskList tasks={tasks} setTasks={setTasks} daysToComplete={daysToComplete} setDaysToComplete={setDaysToComplete} style={{ textAlign: 'center' }}/>
           </Route>
         </Switch>
       </Router>
