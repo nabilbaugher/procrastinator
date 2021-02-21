@@ -20,7 +20,7 @@ const Task = ({ id, name, dueDate, setTasks }) => {
         <Card.Header>{name}</Card.Header>
         <Card.Description>
           {dueDate ? 
-            <div>Due date: {dueDate.getMonth()}/{dueDate.getDay()}</div> :
+            <div>Due date: {dueDate.getMonth()}/{dueDate.getDate()}</div> :
             <div>No due date</div>
           }
         </Card.Description>

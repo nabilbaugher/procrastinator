@@ -14,10 +14,6 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const [taskName, setTaskName] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
 
-  const tasksList = tasks.map(task => {
-    return <Task key={task.id} id={task.id} name={task.name} dueDate={task.dueDate} setTasks={setTasks} />
-  });
-
   const renderCustomInput = ({ ref }) => (
     <div ref={ref}>
       <Button>Add Due Date</Button>
@@ -41,7 +37,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
     setTasks(prevtasks => {
       let date = null;
       if (selectedDate) {
-        date = new Date(selectedDate.year, selectedDate.month - 1, selectedDate.day, 0, 0, 0, 0);
+        date = new Date(selectedDate.year, selectedDate.month, selectedDate.day);
       }
       return [...prevtasks, { id: uuidv4(), name: taskName, dueDate: date }]
     });
@@ -52,6 +48,10 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const handleChangeDays = (e, data) => {
     setDaysToComplete(data.value);
   };
+
+  const tasksList = tasks.map(task => {
+    return <Task key={task.id} id={task.id} name={task.name} dueDate={task.dueDate} setTasks={setTasks} />
+  });
 
   return (
     <>

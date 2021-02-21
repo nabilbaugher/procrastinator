@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 import TaskList from './pages/TaskList.js';
@@ -11,8 +11,20 @@ import {
 
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const userData = JSON.parse(localStorage.getItem('userLocalStorageData'));
+    return userData.tasks;
+  });
   const [daysToComplete, setDaysToComplete] = useState(3);
+  
+  useEffect(() => {
+    const newUserData = {
+        tasks: tasks
+    };
+    localStorage.setItem('userLocalStorageData', JSON.stringify(newUserData));
+  }, [tasks]);
+
+
 
   return (
     <div className="App">
