@@ -3,7 +3,7 @@ import { Grid, Header, Button } from 'semantic-ui-react';
 import './Plan.scss';
 import Day from '../components/Day';
 import { v4 as uuidv4 } from 'uuid';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Watermark from '../components/Watermark';
 
 const Plan = ({ tasks, daysToComplete }) => {

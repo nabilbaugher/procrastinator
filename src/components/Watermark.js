@@ -9,8 +9,6 @@ const Watermark = ({ content, size }) => {
           width: '100%',
           fontSize: `${size}vmin`,
           lineHeight: `${size}vmin`,
-          // fontSize: '60vmin',
-          // lineHeight: '60vmin',
           color: '#f1f1f1',
           position: 'absolute',
           bottom: '0',
