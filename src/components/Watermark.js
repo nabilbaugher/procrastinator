@@ -4,12 +4,11 @@ const Watermark = ({ content, size }) => {
   return (
     <>
       <div style={{ textAlign: 'justify' }} />
-      <div style={{
+      <div className='watermark' style={{
           display: 'inline-block',
           width: '100%',
           fontSize: `${size}vmin`,
           lineHeight: `${size}vmin`,
-          color: '#f1f1f1',
           position: 'absolute',
           bottom: '0',
           left: '0',

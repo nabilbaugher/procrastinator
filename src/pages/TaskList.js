@@ -4,7 +4,6 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import DatePicker, { utils } from 'react-modern-calendar-datepicker';
 import Task from '../components/Task';
 import { v4 as uuidv4 } from 'uuid';
-import { BsChevronCompactLeft, BsPlus } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Watermark from '../components/Watermark';
 
@@ -58,9 +57,9 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       <Header style={{ fontSize: '2em' }} textAlign='center'>Tasks</Header>
       <Card.Group centered style={{ margin: '2em' }}>
         {tasksList}
-        <Card>
+        <Card className='secondary' >
           <Card.Content style={{ textAlign: 'center' }}>
-            <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} style={{ marginBottom: '.5em' }}></Input>
+            <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} className='secondary' style={{ marginBottom: '.5em' }}></Input>
             {selectedDate && 
               <div style={{ marginBottom: '.5em' }}>Due Date: {selectedDate.month}/{selectedDate.day}</div>
             }

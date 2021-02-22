@@ -4,12 +4,12 @@ import { VscClose } from 'react-icons/vsc';
 
 const Task = ({ id, name, dueDate, setTasks }) => {
   const deleteTask = () => {
-    setTasks(prevtasks => prevtasks.filter(task => task.id != id));
+    setTasks(prevtasks => prevtasks.filter(task => task.id !== id));
   };
 
   return (
     <Card style={{ wordWrap: 'break-word' }}>
-      <Card.Content>
+      <Card.Content className='secondary'>
         <Card.Header>{name}</Card.Header>
         <Card.Description>
           {dueDate ? 

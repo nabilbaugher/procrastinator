@@ -17,7 +17,9 @@ const App = () => {
       return [];
     }
     for (let task of userData.tasks) {
-      task.dueDate = new Date(task.dueDate);
+      if (task.dueDate) {
+        task.dueDate = new Date(task.dueDate);
+      }
     }
     console.log('got tasks from local storage');
     return userData.tasks;

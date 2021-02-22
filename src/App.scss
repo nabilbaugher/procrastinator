@@ -1,4 +1,11 @@
+// variables
+
 $watermark-height: 40vmin;
+$accent-color: #3c6e71;
+$background-color: #ffffff;
+$secondary-color: #ffffff;
+
+// global
 
 html {
   margin: 0;
@@ -7,11 +14,42 @@ html {
   position: relative;
 }
 
+body {
+  background-color: $background-color;
+}
+
 .App {
   max-width: 1400px;
   margin: 0 auto;
   padding: 3em;
   min-height: 100vh;
+}
+
+button {
+  background-color: $accent-color !important;
+  color: white !important;
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.secondary {
+  background-color: $secondary-color !important;
+}
+
+input {
+  background-color: $background-color !important;
+
+  &::placeholder {
+    color: #555 !important;
+  }
+}
+
+// others
+
+.watermark {
+  color: $accent-color;
+  opacity: 30%;
 }
 
 #assignments {
