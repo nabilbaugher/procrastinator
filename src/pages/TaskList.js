@@ -5,6 +5,7 @@ import DatePicker, { utils } from 'react-modern-calendar-datepicker';
 import Task from '../components/Task';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import { VscCalendar } from 'react-icons/vsc';
 import Watermark from '../components/Watermark';
 import './TaskList.scss';
 
@@ -16,7 +17,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   const renderCustomInput = ({ ref }) => (
     <div ref={ref}>
-      <Button className='btn'>Add Due Date</Button>
+      <Button className='btn tasklist__button'><VscCalendar className='tasklist__calendar-icon'/></Button>
     </div>
   );
 
@@ -79,7 +80,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       <div className='tasklist__container--right'>
         <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span>
         <Link to='/plan'>
-          <Button className='btn' floated='right' style={{ marginLeft: '1em' }}>
+          <Button className='btn tasklist__plan-btn' floated='right' style={{ marginLeft: '1em' }}>
             Generate Plan
           </Button>
         </Link>
