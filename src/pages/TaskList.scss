@@ -1,0 +1,16 @@
+.tasklist {
+  &__card-container {
+    margin: 2em !important;
+    display: grid;
+  }
+  
+  &__header {
+    font-size: 2rem !important;
+    text-align: center;
+  }
+  
+  &__container--right {
+    margin: 2em !important; 
+    float: right;
+  }
+}

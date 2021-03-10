@@ -1,7 +1,7 @@
 // variables
 
 $watermark-height: 40vmin;
-$accent-color: #3c6e71;
+$accent-color: hsl(183, 31%, 34%);
 $background-color: #ffffff;
 $secondary-color: #ffffff;
 
@@ -25,7 +25,7 @@ body {
   min-height: 100vh;
 }
 
-button {
+.btn {
   background-color: $accent-color !important;
   color: white !important;
   transition-duration: 1s;
@@ -60,12 +60,4 @@ input {
 #controls {
   margin: 1em;
   text-align: right;
-}
-
-.page-header {
-  font-size: 200px;
-}
-
-.center {
-  text-align: center;
 }

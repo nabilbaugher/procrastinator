@@ -67,14 +67,14 @@ const Plan = ({ tasks, daysToComplete }) => {
 
   return (
     <div className='center'>
-      <Header className='page-header' style={{ marginBottom: '1em' }}>Plan</Header>
-      <Grid className='centered content'>
+      <Header className='plan__header' style={{ marginBottom: '1em' }}>Plan</Header>
+      <Grid className='centered plan__content'>
         {daysList}
       </Grid>
       <Link to='/#'>
-        <Button className='btn' floated='right'>Back to Tasks</Button>
+        <Button className='plan__btn' floated='right'>Back to Tasks</Button>
       </Link>
-      <Watermark content='inator.' size={60} />
+      {/* <Watermark content='inator.' size={60} /> */}
     </div>
   )
 }

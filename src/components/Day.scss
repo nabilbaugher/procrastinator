@@ -1,16 +1,15 @@
 .day {
-  &.first-task {
+  &__first-task {
     font-size: 1.3em;
     font-weight: bold;
   }
-  &.task {
+  &__task {
     font-size: 1.3em;
   }
 
-  &.due-date {
+  &__due-date {
     float: right;
     color: rgb(90, 90, 90);
   }
-
   line-height: 2em;
 }

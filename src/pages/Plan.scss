@@ -1,11 +1,13 @@
-.page-header {
-  font-size: 2em !important;
-}
+.plan {
+  &__header {
+    font-size: 2em !important;
+  }
 
-.btn {
-  margin: 1em !important;
-}
+  &__btn {
+    margin: 1em !important;
+  }
 
-.content {
-  margin: 2em;
+  &__content {
+    margin: 2em;
+  }
 }

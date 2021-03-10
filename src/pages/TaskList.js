@@ -6,6 +6,7 @@ import Task from '../components/Task';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import Watermark from '../components/Watermark';
+import './TaskList.scss';
 
 //TODO: add delete button for each task
 
@@ -15,7 +16,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   const renderCustomInput = ({ ref }) => (
     <div ref={ref}>
-      <Button>Add Due Date</Button>
+      <Button className='btn'>Add Due Date</Button>
     </div>
   );
 
@@ -53,11 +54,11 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   });
   
   return (
-    <>
-      <Header style={{ fontSize: '2em' }} textAlign='center'>Tasks</Header>
-      <Card.Group centered style={{ margin: '2em' }}>
+    <div className='tasklist'>
+      <Header className='tasklist__header'>Tasks</Header>
+      <Card.Group centered className='tasklist__card-container'>
         {tasksList}
-        <Card className='secondary' >
+        <Card className='secondary'>
           <Card.Content style={{ textAlign: 'center' }}>
             <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} className='secondary' style={{ marginBottom: '.5em' }}></Input>
             {selectedDate && 
@@ -69,22 +70,22 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
               renderInput={renderCustomInput}
               inputPlaceholder='Select due date'
               minimumDate={utils().getToday()}
-              colorPrimary="#f589a2"
+              colorPrimary="hsl(183, 31%, 34%)"
             />
-            <Button onClick={handleAddTask}>Add Task</Button>
+            <Button className='btn' onClick={handleAddTask}>Add Task</Button>
           </Card.Content>
         </Card>
       </Card.Group>
-      <div style={{ float: 'right' }}>
+      <div className='tasklist__container--right'>
         <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span>
         <Link to='/plan'>
-          <Button floated='right' style={{ marginLeft: '1em' }}>
+          <Button className='btn' floated='right' style={{ marginLeft: '1em' }}>
             Generate Plan
           </Button>
         </Link>
       </div>
-      <Watermark content='Procrast' size={45}/>
-    </>
+      {/* <Watermark content='Procrast' size={45}/> */}
+    </div>
   )
 };
 

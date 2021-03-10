@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import { VscClose } from 'react-icons/vsc';
+import './Task.scss';
 
 const Task = ({ id, name, dueDate, setTasks }) => {
   const deleteTask = () => {
@@ -8,8 +9,11 @@ const Task = ({ id, name, dueDate, setTasks }) => {
   };
 
   return (
-    <Card style={{ wordWrap: 'break-word' }}>
+    <Card className='task'>
       <Card.Content className='secondary'>
+        <div onClick={deleteTask} className='task__delete-btn'>
+          <VscClose style={{ transform: 'scale(1.2)' }}/>
+        </div>
         <Card.Header>{name}</Card.Header>
         <Card.Description>
           {dueDate ? 
@@ -17,9 +21,7 @@ const Task = ({ id, name, dueDate, setTasks }) => {
             <div>No due date</div>
           }
         </Card.Description>
-        <div onClick={deleteTask} style={{ padding: '2px', margin: '3px', position: 'absolute', top: '0', right: '0' }}>
-          <VscClose style={{ transform: 'scale(1.2)' }}/>
-        </div>
+        
       </Card.Content>
     </Card>
   )
