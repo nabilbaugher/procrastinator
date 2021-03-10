@@ -72,7 +72,7 @@ const Plan = ({ tasks, daysToComplete }) => {
         {daysList}
       </Grid>
       <Link to='/#'>
-        <Button className='plan__btn' floated='right'>Back to Tasks</Button>
+        <Button className='btn plan__btn' floated='right'>Back to Tasks</Button>
       </Link>
       {/* <Watermark content='inator.' size={60} /> */}
     </div>
