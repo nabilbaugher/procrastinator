@@ -67,7 +67,7 @@ const Plan = ({ tasks, daysToComplete }) => {
 
   return (
     <div className='center'>
-      <Header className='plan__header' style={{ marginBottom: '1em' }}>Plan</Header>
+      <Header className='plan__header'>Plan</Header>
       <Grid className='centered plan__content'>
         {daysList}
       </Grid>
