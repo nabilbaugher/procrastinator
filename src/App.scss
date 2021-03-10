@@ -30,6 +30,7 @@ body {
   background-color: $accent-color !important;
   color: white !important;
   transition-duration: 1s;
+  cursor: pointer;
   &:hover {
     filter: brightness(1.1);
   }
