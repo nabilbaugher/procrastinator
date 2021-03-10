@@ -69,7 +69,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
               value={selectedDate}
               onChange={setSelectedDate}
               renderInput={renderCustomInput}
-              calendarClassName='responsive-calendar'
+              calendarClassName='btn responsive-calendar'
               inputPlaceholder='Select due date'
               minimumDate={utils().getToday()}
               colorPrimary="hsl(183, 31%, 34%)"
