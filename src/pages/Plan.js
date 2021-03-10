@@ -59,7 +59,7 @@ const Plan = ({ tasks, daysToComplete }) => {
 
   const daysList = dividedTasks.map((dayTasks, idx) => {
     return (
-      <Grid.Column width={window.matchMedia("(max-width: 700px)") ? 16 : width} key={uuidv4()}>
+      <Grid.Column width={window.matchMedia("only screen and (max-width: 600px)").matches ? 16 : width} key={uuidv4()}>
         <Day dayTasks={dayTasks} dayNumber={idx + 1}/>
       </Grid.Column>
     );
