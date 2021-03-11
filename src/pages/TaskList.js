@@ -90,7 +90,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
           </Button>
         </Link>
       </div>
-      {/* <Watermark content='Procrast' size={45}/> */}
+      <Watermark classname='tasklist__watermark' content='Procrast' size={26}/>
     </div>
   )
 };

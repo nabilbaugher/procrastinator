@@ -35,6 +35,13 @@
     font-size: 1.2em;
     line-height: 1.7em !important;
   }
+  // @media only screen and (max-width: 1300px) {
+  &__watermark {
+    visibility: hidden !important;
+    color: red !important;
+  }
+  // }
+  
 }
 
 @media only screen and (max-width: 768px) {

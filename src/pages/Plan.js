@@ -76,7 +76,7 @@ const Plan = ({ tasks, daysToComplete }) => {
           <Button className='btn plan__btn'>Back to Tasks</Button>
         </Link>
       </div>
-      {/* <Watermark content='inator.' size={60} /> */}
+      <Watermark className='plan__watermark' content='inator.' size={35} />
     </div>
   )
 }
