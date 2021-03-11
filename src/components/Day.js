@@ -7,7 +7,7 @@ const Day = ({ dayNumber, dayTasks }) => {
   const listOfTasks = dayTasks.map((task, idx) => {
     const dueDateText = <span className='day__due-date'>{task.dueDate ? task.dueDate.getMonth() + '/' + task.dueDate.getDate() : null}</span>;
     if (idx === 0) {
-      return <li key={uuidv4()}className='day__first-task'>{task.name}{dueDateText}</li>
+      return <li key={uuidv4()}className='day__task first'>{task.name}{dueDateText}</li>
     }
     return <li key={uuidv4()} className='day__task'>{task.name}{dueDateText}</li>
   });

@@ -3,14 +3,13 @@
     text-align: center;
   }
 
-  &__first-task {
-    font-size: 1.3em;
-    font-weight: bold;
-  }
-
   &__task {
     font-size: 1.3em;
     line-height: 2em;
+    padding-right: 14px;
+    &.first {
+      font-weight: bold;
+    }
   }
 
   &__due-date {
