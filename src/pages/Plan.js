@@ -66,14 +66,16 @@ const Plan = ({ tasks, daysToComplete }) => {
   });
 
   return (
-    <div className='center'>
+    <div className='plan'>
       <Header className='plan__header'>Plan</Header>
       <Grid className='centered plan__content'>
         {daysList}
       </Grid>
-      <Link to='/#'>
-        <Button className='btn plan__btn' floated='right'>Back to Tasks</Button>
-      </Link>
+      <div className='plan__btn-container'>
+        <Link to='/#'>
+          <Button className='btn plan__btn'>Back to Tasks</Button>
+        </Link>
+      </div>
       {/* <Watermark content='inator.' size={60} /> */}
     </div>
   )

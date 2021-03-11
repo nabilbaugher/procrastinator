@@ -1,0 +1,23 @@
+$accent-color: hsl(183, 31%, 34%);
+
+.numberinput {
+  // position: relative;
+  text-align: center;
+  width: 100px !important;
+
+  &__btn {
+    // font-size: 2em !important;
+    width: 25px !important;
+    height: 25px !important;
+    border: 0px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 2px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

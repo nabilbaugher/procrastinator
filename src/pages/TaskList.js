@@ -6,6 +6,7 @@ import Task from '../components/Task';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { VscCalendar } from 'react-icons/vsc';
+import NumberInput from '../components/NumberInput';
 import Watermark from '../components/Watermark';
 import './TaskList.scss';
 
@@ -14,10 +15,11 @@ import './TaskList.scss';
 const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const [taskName, setTaskName] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
+  const [days, setDays] = useState(3);
 
   const renderCustomInput = ({ ref }) => (
     <div ref={ref}>
-      <Button className='btn tasklist__button'><VscCalendar className='tasklist__calendar-icon'/></Button>
+      <Button className='btn tasklist__button'><VscCalendar className='tasklist__calendar-icon' /></Button>
     </div>
   );
 
@@ -30,7 +32,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const handleAddName = (e, data) => {
     setTaskName(data.value);
   };
-  
+
   const handleAddTask = (e) => {
     if (taskName === '') {
       return;
@@ -53,7 +55,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const tasksList = tasks.map(task => {
     return <Task key={task.id} id={task.id} name={task.name} dueDate={task.dueDate} setTasks={setTasks} />
   });
-  
+
   return (
     <div className='tasklist'>
       <Header className='tasklist__header'>Tasks</Header>
@@ -62,14 +64,14 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
         <Card className='secondary'>
           <Card.Content style={{ textAlign: 'center' }}>
             <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} className='secondary' style={{ marginBottom: '.5em' }}></Input>
-            {selectedDate && 
+            {selectedDate &&
               <div style={{ marginBottom: '.5em' }}>Due Date: {selectedDate.month}/{selectedDate.day}</div>
             }
             <DatePicker
               value={selectedDate}
               onChange={setSelectedDate}
               renderInput={renderCustomInput}
-              calendarClassName='btn responsive-calendar'
+              calendarClassName='responsive-calendar'
               inputPlaceholder='Select due date'
               minimumDate={utils().getToday()}
               colorPrimary="hsl(183, 31%, 34%)"
@@ -78,10 +80,13 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
           </Card.Content>
         </Card>
       </Card.Group>
-      <div className='tasklist__container--right'>
-        <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span>
+      <div className='tasklist__container'>
+        {/* <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span> */}
+        <span className='tasklist__plan-prompt'>I have <NumberInput value={days} setValue={setDays} min={1} max={99} /> days to complete these tasks.</span>
+      </div>
+      <div className='tasklist__container'>
         <Link to='/plan'>
-          <Button className='btn tasklist__plan-btn' floated='right' style={{ marginLeft: '1em' }}>
+          <Button className='btn tasklist__plan-btn'>
             Generate Plan
           </Button>
         </Link>
