@@ -15,7 +15,6 @@ import './TaskList.scss';
 const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const [taskName, setTaskName] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
-  const [days, setDays] = useState(3);
 
   const renderCustomInput = ({ ref }) => (
     <div ref={ref}>
@@ -82,7 +81,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       </Card.Group>
       <div className='tasklist__container'>
         {/* <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span> */}
-        <span className='tasklist__plan-prompt'>I have <NumberInput value={days} setValue={setDays} min={1} max={99} /> days to complete these tasks.</span>
+        <span className='tasklist__plan-prompt'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
       </div>
       <div className='tasklist__container'>
         <Link to='/plan'>
