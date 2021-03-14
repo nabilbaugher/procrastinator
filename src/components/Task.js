@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react';
 import { VscClose } from 'react-icons/vsc';
 import './Task.scss';
 
-const Task = ({ id, name, dueDate, setTasks }) => {
+const Task = ({ id, name, dueDate, hoursToComplete, setTasks }) => {
   const deleteTask = () => {
     setTasks(prevtasks => prevtasks.filter(task => task.id !== id));
   };
@@ -19,6 +19,10 @@ const Task = ({ id, name, dueDate, setTasks }) => {
           {dueDate ? 
             <div>Due date: {dueDate.getMonth()}/{dueDate.getDate()}</div> :
             <div>No due date</div>
+          }
+          {hoursToComplete ? 
+            <div>~{hoursToComplete} hours</div> :
+            <div>No timeframe</div>
           }
         </Card.Description>
         

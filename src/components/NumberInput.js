@@ -19,11 +19,21 @@ const NumberInput = ({ value, setValue, min, max }) => {
   return (
     <span className='numberinput'>
       &nbsp;
-      <button className='btn numberinput__btn' size='mini' onClick={decrement}>
+      <button
+        className='btn numberinput__btn'
+        size='mini'
+        onClick={decrement}
+        disabled={value === min}
+      >
         <FaMinus className='numberinput__icon' />
       </button>
       <span classname='numberinput__value'>&nbsp;&nbsp;{value}&nbsp;&nbsp;</span>
-      <button className='btn numberinput__btn' size='mini' onClick={increment}>
+      <button
+        className='btn numberinput__btn'
+        size='mini'
+        onClick={increment}
+        disabled={value === max}
+      >
         <FaPlus className='numberinput__icon' />
       </button>
       &nbsp;

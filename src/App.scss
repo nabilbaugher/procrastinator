@@ -30,10 +30,14 @@ body {
 .btn {
   background-color: $accent-color !important;
   color: white !important;
-  transition-duration: 1s;
+  transition-duration: .5s;
   cursor: pointer;
   &:hover {
     filter: brightness(1.1);
+  }
+  &:disabled {
+    opacity: .7;
+    cursor: auto;
   }
 }
 
