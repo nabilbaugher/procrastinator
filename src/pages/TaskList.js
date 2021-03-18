@@ -20,8 +20,8 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const [selectedHours, setSelectedHours] = useState(DEFAULT_HOURS);
 
   const renderCustomInput = ({ ref }) => (
-    <div ref={ref}>
-      <Button className='btn tasklist__button'><FiCalendar className='tasklist__calendar-icon' /></Button>
+    <div className='' ref={ref}>
+      <button className='rounded-full cursor-pointer hover:bg-gray-100 focus:outline-none'><FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1 text-emerald-700' /></button>
     </div>
   );
 
@@ -31,8 +31,8 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
     }
   };
 
-  const handleAddName = (e, data) => {
-    setTaskName(data.value);
+  const handleAddName = (e) => {
+    setTaskName(e.target.value);
   };
 
   const handleAddTask = (e) => {
@@ -61,47 +61,55 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   return (
     <div className='tasklist'>
-      <Header className='tasklist__header'>Tasks</Header>
-      <Card.Group centered className='tasklist__card-container'>
+      <h1 className='text-center'>Tasks</h1>
+      <div centered className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {tasksList}
-        <Card className='secondary'>
-          <Card.Content style={{ textAlign: 'center' }}>
-            <Input fluid placeholder='Type task name...' value={taskName} onChange={handleAddName} onKeyDown={handleKeyPress} className='secondary' style={{ marginBottom: '.5em' }}></Input>
-            {selectedDate &&
-              <div style={{ marginBottom: '.5em' }}>Due Date: {selectedDate.month}/{selectedDate.day}</div>
-            }
+        <ul className='grid grid-cols-3 gap-2 relative p-5 bg-emerald-50 bg-opacity-70 hover:bg-opacity-50 rounded-lg break-words shadow-lg'>
+          <input
+            className='col-span-3 text-lg focus:outline-none bg-emerald-200'
+            type='text'
+            placeholder='Type task name...'
+            value={taskName} onChange={handleAddName}
+            onKeyDown={handleKeyPress}
+          ></input>
+          {selectedDate &&
+            <div className='col-span-3 my-1'>Due Date: {selectedDate.month}/{selectedDate.day}</div>
+          }
+          <div className='flex justify-center'>
             <DatePicker
               value={selectedDate}
               onChange={setSelectedDate}
               renderInput={renderCustomInput}
-              calendarClassName='responsive-calendar'
+              calendarClassName=''
               inputPlaceholder='Select due date'
               minimumDate={utils().getToday()}
-              colorPrimary="hsl(183, 31%, 34%)"
+              colorPrimary="#047857"
             />
-            <Popup
-              content={<NumberInput value={selectedHours} setValue={setSelectedHours} min={1} max={24}/>}
-              on='click'
-              pinned
-              position='bottom center'
-              trigger={<Button className='btn tasklist__button'><FiClock className='tasklist__calendar-icon' /></Button>}
-            />
-            <Button className='btn' onClick={handleAddTask}>Add Task</Button>
-          </Card.Content>
-        </Card>
-      </Card.Group>
-      <div className='tasklist__container'>
+          </div>
+          {/* <Popup
+            content={<NumberInput value={selectedHours} setValue={setSelectedHours} min={1} max={24}/>}
+            on='click'
+            pinned
+            position='bottom center'
+            trigger={<Button className='btn tasklist__button'><FiClock className='tasklist__calendar-icon' /></Button>}
+          /> */}
+          <div className='col-span-2 flex justify-center'>
+            <button className='btn' onClick={handleAddTask}>Add Task</button>
+          </div>
+        </ul>
+      </div>
+      <div className='text-center m-2 mt-4'>
         {/* <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span> */}
         <span className='tasklist__plan-prompt'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
       </div>
-      <div className='tasklist__container'>
+      <div className='text-center'>
         <Link to='/plan'>
-          <Button className='btn tasklist__plan-btn'>
+          <button className='btn m-2'>
             Generate Plan
-          </Button>
+          </button>
         </Link>
       </div>
-      <Watermark classname='tasklist__watermark' content='Thrips' size={35} />
+      {/* <Watermark classname='tasklist__watermark' content='Thrips' size={35} /> */}
     </div>
   )
 };

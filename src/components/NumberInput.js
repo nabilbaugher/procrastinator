@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'semantic-ui-react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
-import './NumberInput.scss'
+// import './NumberInput.scss'
 
 const NumberInput = ({ value, setValue, min, max }) => {
   const increment = () => {
@@ -17,11 +17,11 @@ const NumberInput = ({ value, setValue, min, max }) => {
   }
 
   return (
-    <span className='numberinput'>
+    <span className='text-center'>
       &nbsp;
       <button
-        className='btn numberinput__btn'
-        size='mini'
+        className='bg-emerald-700 text-white w-7 h-7 rounded-full inline-flex justify-center items-center relative hover:bg-emerald-600 focus:outline-none disabled:opacity-50 disabled:cursor-auto'
+        style={{top: '2px'}}
         onClick={decrement}
         disabled={value === min}
       >
@@ -29,8 +29,8 @@ const NumberInput = ({ value, setValue, min, max }) => {
       </button>
       <span classname='numberinput__value'>&nbsp;&nbsp;{value}&nbsp;&nbsp;</span>
       <button
-        className='btn numberinput__btn'
-        size='mini'
+        className='bg-emerald-700 text-white w-7 h-7 rounded-full inline-flex justify-center items-center relative hover:bg-emerald-600 focus:outline-none disabled:opacity-50 disabled:cursor-auto'
+        style={{top: '2px'}}
         onClick={increment}
         disabled={value === max}
       >

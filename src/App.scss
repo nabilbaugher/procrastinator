@@ -28,17 +28,7 @@ body {
 }
 
 .btn {
-  background-color: $accent-color !important;
-  color: white !important;
-  transition-duration: .5s;
-  cursor: pointer;
-  &:hover {
-    filter: brightness(1.1);
-  }
-  &:disabled {
-    opacity: .7;
-    cursor: auto;
-  }
+  @apply bg-emerald-700 text-white duration-200 rounded-full hover:bg-emerald-600 cursor-pointer text-xl py-1.5 px-5 font-medium focus:outline-none;
 }
 
 .secondary {
