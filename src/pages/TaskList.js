@@ -62,7 +62,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   return (
     <div className='tasklist'>
-      <h1 className='text-center'>Tasks</h1>
+      <h1 className='font-medium text-center'>Thrips</h1>
       <div centered className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {tasksList}
         <ul className='grid grid-cols-4 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
