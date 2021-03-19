@@ -20,7 +20,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   const renderCustomInput = ({ ref }) => (
     <div className='' ref={ref}>
-      <button className='border-emerald-700 border-2 shadow-lg rounded-full cursor-pointer hover:border-emerald-600 focus:outline-none'>
+      <button className='bg-gray-50 bg-opacity-40 border-emerald-700 border-2 shadow-lg rounded-full cursor-pointer hover:border-emerald-600 focus:outline-none'>
         <FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1.5 text-emerald-700 hover:text-emerald-600 duration-200'/>
       </button>
     </div>

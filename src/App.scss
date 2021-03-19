@@ -37,12 +37,12 @@ body {
 
 .btn {
   @apply shadow-lg rounded-full cursor-pointer text-xl py-1.5 px-5 font-medium focus:outline-none;
-  @apply bg-transparent border-emerald-700 border-2 text-emerald-700 hover:text-emerald-600 hover:border-emerald-600;
+  @apply bg-gray-50 bg-opacity-40 border-emerald-700 border-2 text-emerald-700 hover:text-emerald-600 hover:border-emerald-600;
 }
 
 input {
-  @apply py-2 px-5 rounded-full shadow-lg;
-  @apply bg-transparent border-emerald-700 border-opacity-50 border-2 focus:border-opacity-100;
+  @apply py-2 px-5 rounded-full shadow-lg bg-gray-50 bg-opacity-40 focus:bg-opacity-60;
+  @apply border-emerald-700 border-opacity-50 border-2 focus:border-opacity-100;
 }
 
 .secondary {
