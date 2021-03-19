@@ -21,7 +21,9 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   const renderCustomInput = ({ ref }) => (
     <div className='' ref={ref}>
-      <button className='rounded-full cursor-pointer hover:bg-gray-100 focus:outline-none'><FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1 text-emerald-700' /></button>
+      <button className='rounded-full cursor-pointer focus:outline-none'>
+        <FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1 text-emerald-700 hover:text-emerald-600 duration-200'/>
+      </button>
     </div>
   );
 
@@ -64,10 +66,10 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       <h1 className='text-center'>Tasks</h1>
       <div centered className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {tasksList}
-        <ul className='grid grid-cols-3 gap-2 relative p-5 bg-emerald-50 bg-opacity-70 hover:bg-opacity-50 rounded-lg break-words shadow-lg'>
+        <ul className='grid grid-cols-3 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
           <input
-            className='col-span-3 text-lg focus:outline-none bg-emerald-200'
             type='text'
+            className='col-span-3 text-lg focus:outline-none'
             placeholder='Type task name...'
             value={taskName} onChange={handleAddName}
             onKeyDown={handleKeyPress}
@@ -109,7 +111,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
           </button>
         </Link>
       </div>
-      {/* <Watermark classname='tasklist__watermark' content='Thrips' size={35} /> */}
+      <Watermark classname='tasklist__watermark' content='Tasks' size={42} />
     </div>
   )
 };

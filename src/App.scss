@@ -16,7 +16,15 @@ html {
 }
 
 body {
-  background-color: $background-color;
+  // background-color: $background-color;
+  // soft green
+  background-image: linear-gradient(140deg, #c1dfc4 0%, #deecdd 100%);
+  // soft blue
+  // background-image: linear-gradient(200deg, #FFFEFF 0%, #D7FFFE 100%);
+  // soft blue-pink
+  // background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+  // soft gray-blue
+  // background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .App {
@@ -31,16 +39,12 @@ body {
   @apply bg-emerald-700 text-white duration-200 rounded-full hover:bg-emerald-600 cursor-pointer text-xl py-1.5 px-5 font-medium focus:outline-none;
 }
 
-.secondary {
-  background-color: $secondary-color !important;
+input {
+  @apply bg-transparent py-2 px-5 bg-opacity-60 rounded-full border-emerald-700 border-2 border-opacity-50 focus:border-opacity-80;
 }
 
-input {
-  background-color: $background-color !important;
-
-  &::placeholder {
-    color: #555 !important;
-  }
+.secondary {
+  background-color: $secondary-color !important;
 }
 
 // others
