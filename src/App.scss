@@ -36,11 +36,13 @@ body {
 }
 
 .btn {
-  @apply bg-emerald-700 text-white duration-200 rounded-full hover:bg-emerald-600 cursor-pointer text-xl py-1.5 px-5 font-medium focus:outline-none;
+  @apply shadow-lg rounded-full cursor-pointer text-xl py-1.5 px-5 font-medium focus:outline-none;
+  @apply bg-transparent border-emerald-700 border-2 text-emerald-700 hover:text-emerald-600 hover:border-emerald-600;
 }
 
 input {
-  @apply bg-transparent py-2 px-5 bg-opacity-60 rounded-full border-emerald-700 border-2 border-opacity-50 focus:border-opacity-80;
+  @apply py-2 px-5 rounded-full shadow-lg;
+  @apply bg-transparent border-emerald-700 border-opacity-50 border-2 focus:border-opacity-100;
 }
 
 .secondary {
@@ -56,9 +58,4 @@ input {
 
 #assignments {
   margin: 1em;
-}
-
-#controls {
-  margin: 1em;
-  text-align: right;
 }

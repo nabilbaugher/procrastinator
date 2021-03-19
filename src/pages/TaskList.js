@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, Header, Input, Button, Popup } from 'semantic-ui-react';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import DatePicker, { utils } from 'react-modern-calendar-datepicker';
 import Task from '../components/Task';
@@ -8,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { FiCalendar, FiClock } from 'react-icons/fi';
 import NumberInput from '../components/NumberInput';
 import Watermark from '../components/Watermark';
-import './TaskList.scss';
+// import './TaskList.scss';
 
 //TODO: add delete button for each task
 const DEFAULT_DATE = null;
@@ -21,8 +20,8 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   const renderCustomInput = ({ ref }) => (
     <div className='' ref={ref}>
-      <button className='rounded-full cursor-pointer focus:outline-none'>
-        <FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1 text-emerald-700 hover:text-emerald-600 duration-200'/>
+      <button className='border-emerald-700 border-2 shadow-lg rounded-full cursor-pointer hover:border-emerald-600 focus:outline-none'>
+        <FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1.5 text-emerald-700 hover:text-emerald-600 duration-200'/>
       </button>
     </div>
   );
@@ -66,10 +65,10 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       <h1 className='text-center'>Tasks</h1>
       <div centered className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {tasksList}
-        <ul className='grid grid-cols-3 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
+        <ul className='grid grid-cols-4 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
           <input
             type='text'
-            className='col-span-3 text-lg focus:outline-none'
+            className='col-span-4 text-lg focus:outline-none'
             placeholder='Type task name...'
             value={taskName} onChange={handleAddName}
             onKeyDown={handleKeyPress}
@@ -102,7 +101,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       </div>
       <div className='text-center m-2 mt-4'>
         {/* <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span> */}
-        <span className='tasklist__plan-prompt'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
+        <span className='text-lg'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
       </div>
       <div className='text-center'>
         <Link to='/plan'>
