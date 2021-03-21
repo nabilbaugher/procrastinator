@@ -19,7 +19,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
   const [selectedHours, setSelectedHours] = useState(DEFAULT_HOURS);
 
   const renderCustomInput = ({ ref }) => (
-    <div className='' ref={ref}>
+    <div className='mr-1.5' ref={ref}>
       <button className='btn cursor-pointer focus:outline-none'>
         <FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1.5 text-emerald-700 hover:text-emerald-600 duration-200'/>
       </button>
@@ -65,18 +65,18 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
       <h1 className='text-center font-medium' style={{ fontSize: '3.5rem' }}>Assignments</h1>
       <div centered className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {tasksList}
-        <div className='grid grid-cols-4 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
+        <div className='relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
           <input
             type='text'
-            className='col-span-4 text-lg focus:outline-none'
+            className='w-full text-lg focus:outline-none'
             placeholder='Type task name...'
             value={taskName} onChange={handleAddName}
             onKeyDown={handleKeyPress}
           ></input>
           {selectedDate &&
-            <div className='col-span-3 my-1'>Due Date: {selectedDate.month}/{selectedDate.day}</div>
+            <div className='my-1'>Due Date: {selectedDate.month}/{selectedDate.day}</div>
           }
-          <div className='flex justify-center'>
+          <div className='flex justify-center pt-3'>
             <DatePicker
               value={selectedDate}
               onChange={setSelectedDate}
@@ -86,7 +86,6 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
               minimumDate={utils().getToday()}
               colorPrimary="#047857"
             />
-          </div>
           {/* <Popup
             content={<NumberInput value={selectedHours} setValue={setSelectedHours} min={1} max={24}/>}
             on='click'
@@ -94,15 +93,14 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
             position='bottom center'
             trigger={<Button className='btn tasklist__button'><FiClock className='tasklist__calendar-icon' /></Button>}
           /> */}
-          <div className='col-span-2 flex justify-center'>
-            <button className='btn pad' onClick={handleAddTask}>Add Task</button>
+            <button className='btn pad ml-1.5' onClick={handleAddTask}>Add Assignment</button>
           </div>
         </div>
       </div>
       <div className='text-center'>
         <div className='text-center my-6 inline-block bg-gray-50 bg-opacity-30 py-3 px-5 rounded-lg shadow-lg'>
-          <span className='text-xl mr-2 hidden sm:inline'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
-          <div className='text-xl mr-2 sm:hidden mb-3'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</div>
+          <span className='text-xl mr-2 hidden sm:inline'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these assignments.</span>
+          <div className='text-xl mr-2 sm:hidden mb-3'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these assignments.</div>
           <Link to='/plan'>
             <button className='btn pad ml-2'>
               Generate Plan
