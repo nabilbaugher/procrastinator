@@ -32,7 +32,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
     }
   };
 
-  const handleAddName = (e) => {
+  const handleAddName = (e) => { 
     setTaskName(e.target.value);
   };
 
