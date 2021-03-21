@@ -20,8 +20,8 @@ const NumberInput = ({ value, setValue, min, max }) => {
     <span className='text-center'>
       &nbsp;
       <button
-        className='bg-emerald-700 text-white w-7 h-7 rounded-full inline-flex justify-center items-center relative hover:bg-emerald-600 focus:outline-none disabled:opacity-50 disabled:cursor-auto'
-        style={{top: '2px'}}
+        className='btn w-7 h-7 inline-flex justify-center items-center relative focus:outline-none disabled:opacity-50 disabled:cursor-auto'
+        style={{top: '2px', padding: '0'}}
         onClick={decrement}
         disabled={value === min}
       >
@@ -29,8 +29,8 @@ const NumberInput = ({ value, setValue, min, max }) => {
       </button>
       <span>&nbsp;&nbsp;{value}&nbsp;&nbsp;</span>
       <button
-        className='bg-emerald-700 text-white w-7 h-7 rounded-full inline-flex justify-center items-center relative hover:bg-emerald-600 focus:outline-none disabled:opacity-50 disabled:cursor-auto'
-        style={{top: '2px'}}
+        className='btn w-7 h-7 inline-flex justify-center items-center relative focus:outline-none disabled:opacity-50 disabled:cursor-auto'
+        style={{top: '2px', padding: '0'}}
         onClick={increment}
         disabled={value === max}
       >

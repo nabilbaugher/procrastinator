@@ -20,7 +20,7 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   const renderCustomInput = ({ ref }) => (
     <div className='' ref={ref}>
-      <button className='bg-gray-50 bg-opacity-40 border-emerald-700 border-2 shadow-lg rounded-full cursor-pointer hover:border-emerald-600 focus:outline-none'>
+      <button className='btn cursor-pointer focus:outline-none'>
         <FiCalendar viewBox='0 0 25 25' className='w-10 h-10 p-1.5 text-emerald-700 hover:text-emerald-600 duration-200'/>
       </button>
     </div>
@@ -62,10 +62,10 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
 
   return (
     <div className='tasklist'>
-      <h1 className='font-medium text-center'>Thrips</h1>
+      <h1 className='text-center font-medium' style={{ fontSize: '3.5rem' }}>Assignments</h1>
       <div centered className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {tasksList}
-        <ul className='grid grid-cols-4 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
+        <div className='grid grid-cols-4 gap-2 relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
           <input
             type='text'
             className='col-span-4 text-lg focus:outline-none'
@@ -95,22 +95,22 @@ const TaskList = ({ tasks, setTasks, daysToComplete, setDaysToComplete }) => {
             trigger={<Button className='btn tasklist__button'><FiClock className='tasklist__calendar-icon' /></Button>}
           /> */}
           <div className='col-span-2 flex justify-center'>
-            <button className='btn' onClick={handleAddTask}>Add Task</button>
+            <button className='btn pad' onClick={handleAddTask}>Add Task</button>
           </div>
-        </ul>
-      </div>
-      <div className='text-center m-2 mt-4'>
-        {/* <span style={{ fontSize: '1.2em' }}>I have <Input type='number' size='small' value={daysToComplete} onChange={handleChangeDays} style={{ width: '4.5em' }}/> days to complete these tasks.</span> */}
-        <span className='text-lg'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
+        </div>
       </div>
       <div className='text-center'>
-        <Link to='/plan'>
-          <button className='btn m-2'>
-            Generate Plan
-          </button>
-        </Link>
+        <div className='text-center my-6 inline-block bg-gray-50 bg-opacity-30 py-3 px-5 rounded-lg shadow-lg'>
+          <span className='text-xl mr-2 hidden sm:inline'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</span>
+          <div className='text-xl mr-2 sm:hidden mb-3'>I have <NumberInput value={daysToComplete} setValue={setDaysToComplete} min={1} max={99} /> days to complete these tasks.</div>
+          <Link to='/plan'>
+            <button className='btn pad ml-2'>
+              Generate Plan
+            </button>
+          </Link>
+        </div>
       </div>
-      <Watermark classname='tasklist__watermark' content='Tasks' size={42} />
+      {/* <Watermark classname='tasklist__watermark' content='Tasks' size={42} /> */}
     </div>
   )
 };

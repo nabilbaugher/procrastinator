@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Header, Button } from 'semantic-ui-react';
-import './Plan.scss';
 import Day from '../components/Day';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
-import Watermark from '../components/Watermark';
+// import Watermark from '../components/Watermark';
+// import './Plan.scss';
 
 const Plan = ({ tasks, daysToComplete }) => {
   useEffect(() => {
@@ -59,24 +59,24 @@ const Plan = ({ tasks, daysToComplete }) => {
 
   const daysList = dividedTasks.map((dayTasks, idx) => {
     return (
-      <Grid.Column width={window.matchMedia("only screen and (max-width: 600px)").matches ? 16 : width} key={uuidv4()}>
+      <div className='w-full lg:w-1/2 p-2' key={uuidv4()}>
         <Day dayTasks={dayTasks} dayNumber={idx + 1}/>
-      </Grid.Column>
+      </div>
     );
   });
 
   return (
     <div className='plan'>
-      <Header className='plan__header'>Plan</Header>
-      <Grid className='centered plan__content'>
+      <h1 className='text-center font-medium' style={{ fontSize: '3.5rem' }}>Plan</h1>
+      <div className='flex flex-wrap justify-center'>
         {daysList}
-      </Grid>
-      <div className='plan__btn-container'>
+      </div>
+      <div className='text-center'>
         <Link to='/#'>
-          <button className='btn'>Back to Tasks</button>
+          <button className='btn pad my-5'>Back to Tasks</button>
         </Link>
       </div>
-      <Watermark className='plan__watermark' content='Plan' size={40} />
+      {/* <Watermark className='plan__watermark' content='Plan' size={40} /> */}
     </div>
   )
 }
