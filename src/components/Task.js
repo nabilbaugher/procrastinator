@@ -13,7 +13,7 @@ const Task = ({ id, name, dueDate, hoursToComplete, setTasks }) => {
         <div onClick={deleteTask} className='p-1 m-2 absolute top-0 right-0 cursor-pointer'>
           <VscClose style={{ transform: 'scale(1.2)' }}/>
         </div>
-        <div className='text-2xl font-semibold'>{name}</div>
+        <div className='text-2xl font-medium'>{name}</div>
         <div>
           {dueDate ? 
             <div>Due date: {dueDate.getMonth()}/{dueDate.getDate()}</div> :
