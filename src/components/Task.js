@@ -9,7 +9,7 @@ const Task = ({ id, name, dueDate, hoursToComplete, setTasks }) => {
 
   return (
     <>
-      <div className='relative p-5 bg-gray-50 bg-opacity-30 hover:bg-opacity-20 rounded-lg break-words shadow-lg'>
+      <div className='relative p-5 bg-gray-50 bg-opacity-30 rounded-lg break-words shadow-lg'>
         <div onClick={deleteTask} className='p-1 m-2 absolute top-0 right-0 cursor-pointer'>
           <VscClose style={{ transform: 'scale(1.2)' }}/>
         </div>

@@ -65,8 +65,8 @@ const Plan = ({ tasks, daysToComplete }) => {
   });
 
   return (
-    <div className='plan'>
-      <h1 className='text-center font-medium' style={{ fontSize: '3.5rem' }}>Plan</h1>
+    <>
+      <h1 className='text-center font-medium mb-4' style={{ fontSize: '3.5rem' }}>Plan</h1>
       <div className='flex flex-wrap justify-center'>
         {daysList}
       </div>
@@ -76,7 +76,7 @@ const Plan = ({ tasks, daysToComplete }) => {
         </Link>
       </div>
       {/* <Watermark className='plan__watermark' content='Plan' size={40} /> */}
-    </div>
+    </>
   )
 }
 

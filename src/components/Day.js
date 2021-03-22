@@ -6,7 +6,7 @@ const Day = ({ dayNumber, dayTasks }) => {
   const listOfTasks = dayTasks.map((task, idx) => {
 
     return (
-      <div key={uuidv4()} className='p-5 w-full whitespace-nowrap bg-gray-50 bg-opacity-20 hover:bg-opacity-10 rounded-lg shadow-lg'>
+      <div key={uuidv4()} className='p-5 w-full whitespace-nowrap bg-gray-50 bg-opacity-20 rounded-lg shadow-lg'>
         <div className={`text-2xl ${idx === 0 && 'font-medium'}`}>
           {task.name}
           <span className='float-right text-gray-700'>{task.dueDate ? task.dueDate.getMonth() + '/' + task.dueDate.getDate() : null}</span>
