@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'semantic-ui-react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 // import './NumberInput.scss'
 
